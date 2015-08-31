@@ -2,7 +2,7 @@ module Surveyable
   module ActsAsSurvey
     extend ActiveSupport::Concern
     included do
-      has_many :questions, as: :survey
+      has_many :questions, as: :survey, class_name: 'Surveyable::Question'
 
     end
     module ClassMethods
