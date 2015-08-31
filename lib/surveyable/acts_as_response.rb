@@ -1,18 +1,20 @@
 module Surveyable
   module ActsAsResponse
-    extend ActiveSupport::Concern
-    included do
-      has_many :answers, as: :response
-      def survey
-        self.send(survey_relationship)
+    def self.included(base)
+      base.send :extend, ClassMethods
+    end
+
+    module ClassMethods
+      def acts_as_response(options = {})
+        has_many :answers, as: :response, class_name: 'Surveyable::Answer'
+
+        send :include, InstanceMethods
       end
     end
-    module ClassMethods
-      def acts_as_response(survey_relationship, options = {})
-        cattr_accessor :survey
-        self.survey_relationship = survey_relationship.to_s
+    module InstanceMethods
+      def survey
+        nil
       end
     end
   end
 end
-ActiveRecord::Base.send :include, Surveyable::ActsAsResponse

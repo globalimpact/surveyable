@@ -6,8 +6,12 @@ module Surveyable
     module ClassMethods
       def acts_as_survey(response_relationship, options = {})
         has_many :questions, as: :survey, class_name: 'Surveyable::Question'
-        #cattr_accessor :responses
-        #self.responses = responses
+        send :include, InstanceMethods
+      end
+    end
+    module InstanceMethods
+      def responses
+        []
       end
     end
   end

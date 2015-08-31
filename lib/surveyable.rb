@@ -13,4 +13,6 @@ require 'surveyable/question'
 
 ActiveSupport.on_load(:active_record) do
   include Surveyable::ActsAsSurvey
+  include Surveyable::ActsAsResponse
+
 end
