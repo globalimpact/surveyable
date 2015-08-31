@@ -6,9 +6,9 @@ module Surveyable
 
     end
     module ClassMethods
-      def acts_as_survey(responses, options = {})
-        cattr_accessor :responses
-        self.responses = responses
+      def acts_as_survey(response_relationship, options = {})
+        #cattr_accessor :responses
+        #self.responses = responses
       end
     end
   end
