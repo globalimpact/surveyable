@@ -14,32 +14,32 @@ module Surveyable
       'text'
     end
   end
-  class InfoField < Surveyable::Question
+  class InfoField < Question
     def field_type
       'noAnswer'
     end
   end
 
 
-  class HiddenField < Surveyable::Question
+  class HiddenField < Question
     def field_type
       'hidden'
     end
   end
 
-  class BooleanField < Surveyable::Question
+  class BooleanField < Question
     def field_type
       'boolean'
     end
   end
 
-  class DateField < Surveyable::Question
+  class DateField < Question
     def field_type
       'date'
     end
   end
 
-  class SingleSelectField < Surveyable::Question
+  class SingleSelectField < Question
     def field_type
       'select'
     end
@@ -49,49 +49,49 @@ module Surveyable
 
   end
 
-  class MultiSelectField < Surveyable::Question
+  class MultiSelectField < Question
     def field_type
       'select'
     end
   end
 
-  class TextField < Surveyable::Question
+  class TextField < Question
     def field_type
       'textarea'
     end
   end
 
-  class StringField < Surveyable::Question
+  class StringField < Question
     def field_type
       'text'
     end
   end
 
-  class IntegerField < Surveyable::Question
+  class IntegerField < Question
     def field_type
       'number'
     end
   end
 
-  class MoneyAmountField < Surveyable::Question
+  class MoneyAmountField < Question
     def field_type
       'text'
     end
   end
 
-  class SingleDocumentField < Surveyable::Question
+  class SingleDocumentField < Question
     def field_type
       'file'
     end
   end
 
-  class MultiDocumentField < Surveyable::Question
+  class MultiDocumentField < Question
     def field_type
       'file'
     end
   end
 
-  class TelephoneField < Surveyable::Question
+  class TelephoneField < Question
     def field_type
       'tel'
     end
