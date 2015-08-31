@@ -14,4 +14,4 @@ module Surveyable
   end
 end
 
-ActiveRecord::Base.send :include, Surveyable::ActsAsSurvey
+ActiveRecord::Base.extend(Surveyable::ActsAsSurvey)
