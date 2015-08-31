@@ -4,7 +4,7 @@ module Surveyable
       base.send :extend, ClassMethods
     end
     module ClassMethods
-      def acts_as_survey(response_relationship, options = {})
+      def acts_as_survey(options = {})
         has_many :questions, as: :survey, class_name: 'Surveyable::Question'
         send :include, InstanceMethods
       end
