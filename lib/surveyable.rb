@@ -1,6 +1,12 @@
 require "surveyable/version"
-require "acts_as_survey"
+
+
 
 module Surveyable
   # Your code goes here...
 end
+require "surveyable/acts_as_survey"
+require "surveyable/acts_as_response"
+require "surveyable/answer"
+require "surveyable/answer_choice"
+require 'surveyable/question'
