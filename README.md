@@ -1,8 +1,6 @@
 # Surveyable
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/surveyable`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Simple gem to deal with attaching 'surveys' to existing models. This involves question and answer types defined here.
 
 ## Installation
 
@@ -22,15 +20,38 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run migrations (to be included as files soon)
 
-## Development
+### Migrations
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+    create_table :questions do |t|
+          t.integer :survey_id
+          t.string :survey_type
+          t.text :text
+          t.string :type
+          t.boolean :required
+        end
+    create_table :answers do |t|
+          t.integer :question_id
+          t.integer :response_id
+          t.string :response_type
+          t.text :text
+          t.integer :answer_choice_id
+          t.index [:response_id,:response_type]
+        end
+    create_table :answer_choices do |t|
+      t.integer :question_id
+      t.text :text
+      t.index :question_id
+    end
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
+### Attach to models
+Put 'acts_as_survey' in your survey class (the model that needs custom questions).
+Put 'acts_as_response' in your response class (the model that your answers will attach to).
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/surveyable. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/globalimpact/surveyable. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
+##License
+
+MIT License. Copyright 2015 Global Impact. https://charity.org
